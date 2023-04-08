@@ -7,10 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Misc
 node_modules
-build
-build-ssr
 dist
 dist-ssr
 *.local

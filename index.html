@@ -9,6 +9,14 @@
     </head>
     <body>
         <div id="app"></div>
+        <script>
+            // AWS Amplify needs this to work. See https://github.com/aws/aws-sdk-js/issues/3673
+            const isBrowser = () => typeof window !== 'undefined'
+            const isGlobal = () => typeof global !== 'undefined'
+            if (!isGlobal() && isBrowser()) {
+                global = window
+            }
+        </script>
         <script type="module" src="/src/index.jsx"></script>
     </body>
 </html>
