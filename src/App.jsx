@@ -13,6 +13,6 @@ Amplify.configure(awsExports)
 
 export const App = () => {
     return (
-        <h1>App</h1>
+        <h1>APP {import.meta.env.VITE_APP_TITLE}</h1>
     )
 }
