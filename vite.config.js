@@ -1,15 +1,17 @@
-import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
+import {defineConfig} from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
     define: {
         // AWS Amplify needs this to work
         // By default, Vite doesn't include shims for NodeJS necessary for segment analytics lib to work
         // GitHub Issue: https://github.com/aws/aws-sdk-js/issues/3673
         global: {}
     },
+    plugins: [
+        react()
+    ],
     resolve: {
         alias: {
             // AWS Amplify needs this to work

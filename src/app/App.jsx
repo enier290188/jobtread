@@ -1,11 +1,11 @@
-import {CssBaseline as MuiCssBaseline, ThemeProvider as MuiThemeProvider} from '@mui/material'
-import {MuiTheme} from './themes/index.js'
+import {CssBaseline, ThemeProvider} from '@mui/material'
+import {Theme} from './themes'
 
 export const App = () => {
     return (
-        <MuiThemeProvider theme={MuiTheme}>
-            <MuiCssBaseline/>
+        <ThemeProvider theme={Theme}>
+            <CssBaseline/>
             <h1>{`APP ${import.meta.env.VITE_APP_TITLE}`}</h1>
-        </MuiThemeProvider>
+        </ThemeProvider>
     )
 }
