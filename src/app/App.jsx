@@ -1,6 +1,6 @@
 import {CssBaseline, ThemeProvider} from '@mui/material'
-import {useNavigatorOnline} from './hooks/'
-import {Theme} from './themes'
+import {useNavigatorOnline} from './hook'
+import {Theme} from './theme'
 
 export const App = () => {
     const isNavigatorOnline = useNavigatorOnline()
