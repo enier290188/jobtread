@@ -7,7 +7,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import {createTheme} from '@mui/material/styles'
 
-export const Theme = createTheme(
+export const theme = createTheme(
     {
         spacing: 4,
         shape: {

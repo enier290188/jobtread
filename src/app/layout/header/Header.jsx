@@ -1,7 +1,7 @@
-export const HeaderLayout = () => {
+export const Header = () => {
     return (
         <header style={{border: '1px solid blue'}}>
-            <p>HeaderLayout</p>
+            <p>Header Layout</p>
         </header>
     )
 }

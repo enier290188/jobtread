@@ -1,7 +1,7 @@
-export const FooterLayout = () => {
+export const Footer = () => {
     return (
         <footer style={{border: '1px solid black'}}>
-            <p>FooterLayout</p>
+            <p>Footer Layout</p>
         </footer>
     )
 }
