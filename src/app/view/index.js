@@ -1,9 +1,9 @@
-import {ViewDashboard} from './dashboard'
-import {ViewTask} from './task'
+import {RouteDashboard} from './dashboard'
 import {RouteError} from './error'
+import {RouteTask} from './task'
 
 export {
-    ViewDashboard,
-    ViewTask,
-    RouteError
+    RouteDashboard,
+    RouteError,
+    RouteTask
 }

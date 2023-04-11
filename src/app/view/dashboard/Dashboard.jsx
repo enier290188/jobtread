@@ -1,8 +1,10 @@
 import {Box, Divider, Link, Typography} from '@mui/material'
+import React from 'react'
 import {Navigate, NavLink, Outlet, Route, Routes, useMatch, useResolvedPath} from 'react-router-dom'
-import {Content001} from './content/Content001.jsx'
-import {Content002} from './content/Content002.jsx'
-import {Content003} from './content/Content003.jsx'
+import {ComponentNavigateToAppErrorNotFound} from '../../component'
+import {RouteContent001} from './content001'
+import {RouteContent002} from './content002'
+import {RouteContent003} from './content003'
 
 const LinkCustom = ({children, to, ...props}) => {
     const resolvedPath = useResolvedPath(to)
@@ -41,10 +43,10 @@ export const Dashboard = () => {
         <Routes>
             <Route path={``} element={<Layout/>}>
                 <Route index element={<Navigate to={'component002/'}/>}/>
-                <Route path={`component001/*`} element={<Content001/>}/>
-                <Route path={`component002/*`} element={<Content002/>}/>
-                <Route path={`component003/*`} element={<Content003/>}/>
-                <Route path={`*`} element={<Navigate to={'/app/error/not-found/'}/>}/>
+                <Route path={`component001/*`} element={<RouteContent001/>}/>
+                <Route path={`component002/*`} element={<RouteContent002/>}/>
+                <Route path={`component003/*`} element={<RouteContent003/>}/>
+                <Route path={`*`} element={<ComponentNavigateToAppErrorNotFound/>}/>
             </Route>
         </Routes>
     )

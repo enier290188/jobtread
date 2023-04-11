@@ -1,5 +1,5 @@
-import {Dashboard as ViewDashboard} from './Dashboard.jsx'
+import {Dashboard as RouteDashboard} from './Dashboard.jsx'
 
 export {
-    ViewDashboard
+    RouteDashboard
 }

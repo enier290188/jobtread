@@ -1,5 +1,7 @@
 import {Box} from '@mui/material'
+import React from 'react'
 import {Route, Routes} from 'react-router-dom'
+import {ComponentNavigateToAppErrorNotFound} from '../../../component'
 
 const View = () => {
     return (
@@ -12,7 +14,10 @@ const View = () => {
 export const NotFound = () => {
     return (
         <Routes>
-            <Route path={`*`} element={<View/>}/>
+            <Route path={``}>
+                <Route index element={<View/>}/>
+                <Route path={`*`} element={<ComponentNavigateToAppErrorNotFound/>}/>
+            </Route>
         </Routes>
     )
 }

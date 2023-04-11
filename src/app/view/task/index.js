@@ -1,5 +1,5 @@
-import {Task as ViewTask} from './Task.jsx'
+import {Task as RouteTask} from './Task.jsx'
 
 export {
-    ViewTask
+    RouteTask
 }
