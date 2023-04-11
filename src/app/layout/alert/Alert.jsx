@@ -1,7 +1,13 @@
+import {Box, Typography} from '@mui/material'
+
 export const Alert = () => {
+    const sxContainer = {
+        border: theme => `1px solid ${theme.palette.divider}`
+    }
+
     return (
-        <section style={{border: '1px solid green'}}>
-            <p>Alert Layout</p>
-        </section>
+        <Box component={'section'} sx={sxContainer}>
+            <Typography component={'p'} variant={'body1'}>---Layout Alert---</Typography>
+        </Box>
     )
 }

@@ -1,8 +1,14 @@
+import {Box, Typography} from '@mui/material'
+
 export const Main = ({children}) => {
+    const sxContainer = {
+        border: theme => `1px solid ${theme.palette.divider}`
+    }
+
     return (
-        <main style={{border: '1px solid grey'}}>
-            <p>Main Layout</p>
+        <Box component={'main'} sx={sxContainer}>
+            <Typography component={'p'} variant={'body1'}>---Layout Main---</Typography>
             {children}
-        </main>
+        </Box>
     )
 }

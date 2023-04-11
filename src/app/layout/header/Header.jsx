@@ -1,24 +1,36 @@
-import {Box} from '@mui/material'
-import {NavLink} from 'react-router-dom'
+import {Box, Link, Typography} from '@mui/material'
+import {NavLink, useLocation} from 'react-router-dom'
 
 export const Header = () => {
+    const location = useLocation()
+
+    const sxContainer = {
+        border: theme => `1px solid ${theme.palette.divider}`
+    }
+    const sxLink = {}
+    const sxLinkActive = {
+        textDecoration: 'none'
+    }
+
+    console.log(location)
+
     return (
-        <header style={{border: '1px solid blue'}}>
-            <p>Header Layout</p>
-            <Box display={'flex'}>
-                <Box p={1}>
-                    <NavLink to={'/'}>Root</NavLink>
+        <Box component={'header'} sx={sxContainer}>
+            <Typography component={'p'} variant={'body1'}>---Layout Header---</Typography>
+            <Box component={'div'} display={'flex'}>
+                <Box component={'div'} p={1}>
+                    <Link component={NavLink} to={`/`} sx={String(location.pathname).includes(`/`) ? {...sxLink, ...sxLinkActive} : sxLink}>Root</Link>
                 </Box>
-                <Box p={1}>
-                    <NavLink to={'dashboard/'}>Dashboard</NavLink>
+                <Box component={'div'} p={1}>
+                    <Link component={NavLink} to={`/dashboard/`} sx={String(location.pathname).includes(`/dashboard/`) ? {...sxLink, ...sxLinkActive} : sxLink}>Dashboard</Link>
                 </Box>
-                <Box p={1}>
-                    <NavLink to={'task/'}>Task</NavLink>
+                <Box component={'div'} p={1}>
+                    <Link component={NavLink} to={`/task/`} sx={String(location.pathname).includes(`/task/`) ? {...sxLink, ...sxLinkActive} : sxLink}>Task</Link>
                 </Box>
-                <Box p={1}>
-                    <NavLink to={'error/'}>Error</NavLink>
+                <Box component={'div'} p={1}>
+                    <Link component={NavLink} to={`/error/`} sx={String(location.pathname).includes(`/error/`) ? {...sxLink, ...sxLinkActive} : sxLink}>Error</Link>
                 </Box>
             </Box>
-        </header>
+        </Box>
     )
 }

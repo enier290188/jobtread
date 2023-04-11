@@ -1,7 +1,13 @@
+import {Box, Typography} from '@mui/material'
+
 export const Footer = () => {
+    const sxContainer = {
+        border: theme => `1px solid ${theme.palette.divider}`
+    }
+
     return (
-        <footer style={{border: '1px solid black'}}>
-            <p>Footer Layout</p>
-        </footer>
+        <Box component={'footer'} sx={sxContainer}>
+            <Typography component={'p'} variant={'body1'}>---Layout Footer---</Typography>
+        </Box>
     )
 }
