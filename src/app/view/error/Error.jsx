@@ -1,7 +1,7 @@
 import {Box, Typography} from '@mui/material'
-import React from 'react'
 import {Outlet, Route, Routes} from 'react-router-dom'
 import {ComponentNavigateToAppErrorNotFound} from '../../component'
+import {SettingRoute} from '../../setting'
 import {RouteNotFound} from './not-found'
 
 const Layout = () => {
@@ -17,7 +17,7 @@ export const Error = () => {
     return (
         <Routes>
             <Route path={``} element={<Layout/>}>
-                <Route path={`not-found/*`} element={<RouteNotFound/>}/>
+                <Route path={`${SettingRoute.app.error.notFound.PATH}/*`} element={<RouteNotFound/>}/>
                 <Route path={`*`} element={<ComponentNavigateToAppErrorNotFound/>}/>
             </Route>
         </Routes>
