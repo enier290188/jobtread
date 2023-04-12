@@ -1,5 +1,6 @@
 import {Box, Link, Typography} from '@mui/material'
 import {NavLink, useMatch, useResolvedPath} from 'react-router-dom'
+import {SettingRoute} from '../../setting'
 
 const LinkCustom = ({children, to, ...props}) => {
     const resolvedPath = useResolvedPath(to)
@@ -22,16 +23,13 @@ export const Header = () => {
             <Typography component={'p'} variant={'body1'}>---Layout Header---</Typography>
             <Box component={'div'} display={'flex'}>
                 <Box component={'div'} p={1}>
-                    <LinkCustom to={`/`}>Root</LinkCustom>
+                    <LinkCustom to={`${SettingRoute.app.dashboard.TO}`}>Dashboard</LinkCustom>
                 </Box>
                 <Box component={'div'} p={1}>
-                    <LinkCustom to={`/app/dashboard/`}>Dashboard</LinkCustom>
+                    <LinkCustom to={`${SettingRoute.app.task.TO}`}>Task</LinkCustom>
                 </Box>
                 <Box component={'div'} p={1}>
-                    <LinkCustom to={`/app/task/`}>Task</LinkCustom>
-                </Box>
-                <Box component={'div'} p={1}>
-                    <LinkCustom to={`/app/error/`}>Error</LinkCustom>
+                    <LinkCustom to={`${SettingRoute.app.error.TO}`}>Error</LinkCustom>
                 </Box>
             </Box>
         </Box>
