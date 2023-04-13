@@ -1,5 +1,8 @@
 import {CssBaseline, ThemeProvider} from '@mui/material'
+import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+
+import './App.css'
 import {ComponentNavigateTo, ComponentNavigateToAppErrorNotFound} from './component'
 import {LayoutAlert, LayoutFooter, LayoutHeader, LayoutMain} from './layout'
 import {SettingRoute, SettingTheme} from './setting'

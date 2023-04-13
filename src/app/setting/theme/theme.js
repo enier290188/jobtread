@@ -9,6 +9,31 @@ import {createTheme} from '@mui/material/styles'
 
 export const theme = createTheme(
     {
+        components: {
+            MuiContainer: {
+                defaultProps: {
+                    disableGutters: true
+                }
+            }
+        },
+        palette: {
+            common: {
+                black: '#000000',
+                white: '#ffffff'
+            },
+            primary: {
+                dark: '#2e7031',
+                main: '#43a047',
+                light: '#68b36b',
+                contrastText: '#ffffff'
+            },
+            secondary: {
+                dark: '#124116',
+                main: '#1b5e20',
+                light: '#487e4c',
+                contrastText: '#ffffff'
+            }
+        },
         spacing: 4,
         shape: {
             borderRadius: 2
