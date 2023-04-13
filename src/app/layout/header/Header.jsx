@@ -110,22 +110,15 @@ const MobileContentTop = () => {
         <Box component={'div'} sx={sxContainer}>
             <CustomBrand>
                 <CustomBrandIcon/>
+                <CustomBrandTypography/>
             </CustomBrand>
             <Box component={'span'} margin={'auto'}/>
-            <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
+            <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
                 <CustomLinkIcon>
-                    <IconDashboard/>
+                    <IconTranslate/>
                 </CustomLinkIcon>
                 <CustomLinkTypography>
-                    {'Dashboard'}
-                </CustomLinkTypography>
-            </CustomLink>
-            <CustomLink to={`${SettingRoute.app.task.TO}`}>
-                <CustomLinkIcon>
-                    <IconTask/>
-                </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'Tasks'}
+                    {'English'}
                 </CustomLinkTypography>
             </CustomLink>
         </Box>
@@ -144,13 +137,20 @@ const MobileContentBottom = () => {
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <Box component={'span'} margin={'auto'}/>
-            <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
+            <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
                 <CustomLinkIcon>
-                    <IconTranslate/>
+                    <IconDashboard/>
                 </CustomLinkIcon>
                 <CustomLinkTypography>
-                    {'English'}
+                    {'Dashboard'}
+                </CustomLinkTypography>
+            </CustomLink>
+            <CustomLink to={`${SettingRoute.app.task.TO}`}>
+                <CustomLinkIcon>
+                    <IconTask/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'Tasks'}
                 </CustomLinkTypography>
             </CustomLink>
         </Box>
