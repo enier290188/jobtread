@@ -1,5 +1,5 @@
 import {Dashboard as IconDashboard, Task as IconTask, Translate as IconTranslate} from '@mui/icons-material'
-import {Avatar, Box, Container, Link, Typography} from '@mui/material'
+import {Avatar, Box, Button, Container, Typography} from '@mui/material'
 import {NavLink, useMatch, useResolvedPath} from 'react-router-dom'
 import {AssetSvgBrand} from '../../asset'
 import {SettingRoute} from '../../setting'
@@ -17,16 +17,16 @@ const CustomBrand = ({children}) => {
     }
 
     return (
-        <Link component={NavLink} variant={'inherit'} to={SettingRoute.app.TO} sx={sxContainer}>
+        <Button component={NavLink} variant={'text'} to={SettingRoute.app.TO} sx={sxContainer}>
             {children}
-        </Link>
+        </Button>
     )
 }
 
 const CustomBrandIcon = () => {
     const sxContainer = {
-        width: theme => theme.spacing(11),
-        height: theme => theme.spacing(11)
+        width: theme => theme.spacing(10),
+        height: theme => theme.spacing(10)
     }
 
     return (
@@ -38,7 +38,9 @@ const CustomBrandTypography = () => {
     const sxContainer = {}
 
     return (
-        <Typography component={'span'} variant={'h4'} sx={sxContainer}>JobTread</Typography>
+        <Typography component={'span'} variant={'h4'} sx={sxContainer}>
+            {`JobTread`}
+        </Typography>
     )
 }
 
@@ -54,13 +56,16 @@ const CustomLink = ({children, to, ...props}) => {
         justifyContent: 'center',
         alignItems: 'center',
         textDecoration: match ? 'underline' : 'none',
-        color: theme => theme.palette.common.white
+        color: theme => theme.palette.common.white,
+        '&:hover': {
+            textDecoration: match ? 'underline' : 'none'
+        }
     }
 
     return (
-        <Link component={NavLink} variant={'inherit'} to={to} sx={sxContainer} {...props}>
+        <Button component={NavLink} variant={'text'} to={to} sx={sxContainer} {...props}>
             {children}
-        </Link>
+        </Button>
     )
 }
 
@@ -85,7 +90,7 @@ const CustomLinkTypography = ({children}) => {
     const sxContainer = {}
 
     return (
-        <Typography component={'span'} variant={'h6'} sx={sxContainer}>
+        <Typography component={'span'} variant={'body1'} sx={sxContainer}>
             {children}
         </Typography>
     )
@@ -121,32 +126,27 @@ const DesktopContentLeft = () => {
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <Box component={'div'} mr={4}>
-                <CustomBrand>
-                    <CustomBrandIcon/>
-                    <CustomBrandTypography/>
-                </CustomBrand>
-            </Box>
-            <Box component={'div'} mx={2}>
-                <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
-                    <CustomLinkIcon>
-                        <IconDashboard/>
-                    </CustomLinkIcon>
-                    <CustomLinkTypography>
-                        {'Dashboard'}
-                    </CustomLinkTypography>
-                </CustomLink>
-            </Box>
-            <Box component={'div'} mx={2}>
-                <CustomLink to={`${SettingRoute.app.task.TO}`}>
-                    <CustomLinkIcon>
-                        <IconTask/>
-                    </CustomLinkIcon>
-                    <CustomLinkTypography>
-                        {'Tasks'}
-                    </CustomLinkTypography>
-                </CustomLink>
-            </Box>
+            <CustomBrand>
+                <CustomBrandIcon/>
+                <CustomBrandTypography/>
+            </CustomBrand>
+            <Box component={'span'} mr={4}/>
+            <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
+                <CustomLinkIcon>
+                    <IconDashboard/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'Dashboard'}
+                </CustomLinkTypography>
+            </CustomLink>
+            <CustomLink to={`${SettingRoute.app.task.TO}`}>
+                <CustomLinkIcon>
+                    <IconTask/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'Tasks'}
+                </CustomLinkTypography>
+            </CustomLink>
         </Box>
     )
 }
@@ -164,7 +164,7 @@ const DesktopContentRight = () => {
     return (
         <Box component={'div'} sx={sxContainer}>
             <Box component={'div'} mx={2}>
-                <CustomLink to={`#`} disabled={true}>
+                <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
                     <CustomLinkIcon>
                         <IconTranslate/>
                     </CustomLinkIcon>
@@ -210,7 +210,7 @@ export const Header = () => {
     }
 
     return (
-        <Box component={'header'} m={0} pt={1} pr={2} pb={1} pl={2} sx={sxHeader}>
+        <Box component={'header'} m={0} pt={0} pr={2} pb={0} pl={2} sx={sxHeader}>
             <Container component={'div'}>
                 <Box component={'div'} sx={sxContainer}>
                     <MobileContent/>
