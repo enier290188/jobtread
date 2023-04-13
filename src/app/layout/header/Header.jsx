@@ -1,43 +1,93 @@
+import {Dashboard as IconDashboard, Task as IconTask, Translate as IconTranslate} from '@mui/icons-material'
 import {Avatar, Box, Container, Link, Typography} from '@mui/material'
 import {NavLink, useMatch, useResolvedPath} from 'react-router-dom'
 import {AssetSvgBrand} from '../../asset'
 import {SettingRoute} from '../../setting'
 
-const LinkCustom = ({children, to, ...props}) => {
-    const resolvedPath = useResolvedPath(to)
-    const match = useMatch({path: resolvedPath.pathname, end: false})
+const CustomBrand = ({children}) => {
+    const sxContainer = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textDecoration: 'none',
+        color: theme => theme.palette.common.white
+    }
 
     return (
-        <Link component={NavLink} to={to} sx={{textDecoration: match ? 'underline' : 'none', color: theme => theme.palette.common.white}} {...props}>
+        <Link component={NavLink} variant={'inherit'} to={SettingRoute.app.TO} sx={sxContainer}>
             {children}
         </Link>
     )
 }
 
-const MobileBrand = () => {
+const CustomBrandIcon = () => {
+    const sxContainer = {
+        width: theme => theme.spacing(11),
+        height: theme => theme.spacing(11)
+    }
+
+    return (
+        <Avatar component={'span'} variant={'square'} src={AssetSvgBrand} sx={sxContainer}/>
+    )
+}
+
+const CustomBrandTypography = () => {
+    const sxContainer = {}
+
+    return (
+        <Typography component={'span'} variant={'h4'} sx={sxContainer}>JobTread</Typography>
+    )
+}
+
+const CustomLink = ({children, to, ...props}) => {
+    const resolvedPath = useResolvedPath(to)
+    const match = useMatch({path: resolvedPath.pathname, end: false})
+
     const sxContainer = {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
-        alignContent: 'flex-start',
-        justifyContent: 'flex-start',
+        alignContent: 'center',
+        justifyContent: 'center',
         alignItems: 'center',
-        textDecoration: 'none',
+        textDecoration: match ? 'underline' : 'none',
         color: theme => theme.palette.common.white
-    }
-    const sxAvatar = {
-        width: theme => theme.spacing(11),
-        height: theme => theme.spacing(11)
-    }
-    const sxTypography = {
-        display: {xs: 'none', sm: 'block'}
     }
 
     return (
-        <Box component={NavLink} to={SettingRoute.app.TO} sx={sxContainer}>
-            <Avatar component={'span'} variant={'square'} src={AssetSvgBrand} sx={sxAvatar}/>
-            <Typography component={'span'} variant={'h4'} sx={sxTypography}>JobTread</Typography>
+        <Link component={NavLink} variant={'inherit'} to={to} sx={sxContainer} {...props}>
+            {children}
+        </Link>
+    )
+}
+
+const CustomLinkIcon = ({children}) => {
+    const sxContainer = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+
+    return (
+        <Box component={'span'} sx={sxContainer}>
+            {children}
         </Box>
+    )
+}
+
+const CustomLinkTypography = ({children}) => {
+    const sxContainer = {}
+
+    return (
+        <Typography component={'span'} variant={'h6'} sx={sxContainer}>
+            {children}
+        </Typography>
     )
 }
 
@@ -58,42 +108,6 @@ const MobileContent = () => {
     )
 }
 
-const DesktopContentLeftBrand = () => {
-    const sxContainer = {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignContent: 'flex-start',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        textDecoration: 'none',
-        color: theme => theme.palette.common.white
-    }
-    const sxAvatar = {
-        width: theme => theme.spacing(11),
-        height: theme => theme.spacing(11)
-    }
-    const sxTypography = {}
-
-    return (
-        <Link component={NavLink} to={SettingRoute.app.TO} sx={sxContainer}>
-            <Avatar component={'span'} variant={'square'} src={AssetSvgBrand} sx={sxAvatar}/>
-            <Typography component={'span'} variant={'h4'} sx={sxTypography}>JobTread</Typography>
-        </Link>
-    )
-}
-
-const DesktopContentLeftLink = ({children, to, ...props}) => {
-    const resolvedPath = useResolvedPath(to)
-    const match = useMatch({path: resolvedPath.pathname, end: false})
-
-    return (
-        <Link component={NavLink} to={to} sx={{textDecoration: match ? 'underline' : 'none', color: theme => theme.palette.common.white}} {...props}>
-            {children}
-        </Link>
-    )
-}
-
 const DesktopContentLeft = () => {
     const sxContainer = {
         flexGrow: 1,
@@ -102,23 +116,36 @@ const DesktopContentLeft = () => {
         flexWrap: 'nowrap',
         alignContent: 'flex-start',
         justifyContent: 'flex-start',
-        alignItems: 'center',
-
-        border: '1px solid white'
+        alignItems: 'center'
     }
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <DesktopContentLeftBrand/>
-            <Box component={'div'} mx={2}/>
-            <Box component={'div'} p={1}>
-                <LinkCustom to={`${SettingRoute.app.dashboard.TO}`}>Dashboard</LinkCustom>
+            <Box component={'div'} mr={4}>
+                <CustomBrand>
+                    <CustomBrandIcon/>
+                    <CustomBrandTypography/>
+                </CustomBrand>
             </Box>
-            <Box component={'div'} p={1}>
-                <LinkCustom to={`${SettingRoute.app.task.TO}`}>Tasks</LinkCustom>
+            <Box component={'div'} mx={2}>
+                <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
+                    <CustomLinkIcon>
+                        <IconDashboard/>
+                    </CustomLinkIcon>
+                    <CustomLinkTypography>
+                        {'Dashboard'}
+                    </CustomLinkTypography>
+                </CustomLink>
             </Box>
-            <Box component={'div'} p={1}>
-                <LinkCustom to={`${SettingRoute.app.error.TO}`}>Error</LinkCustom>
+            <Box component={'div'} mx={2}>
+                <CustomLink to={`${SettingRoute.app.task.TO}`}>
+                    <CustomLinkIcon>
+                        <IconTask/>
+                    </CustomLinkIcon>
+                    <CustomLinkTypography>
+                        {'Tasks'}
+                    </CustomLinkTypography>
+                </CustomLink>
             </Box>
         </Box>
     )
@@ -131,21 +158,20 @@ const DesktopContentRight = () => {
         flexWrap: 'nowrap',
         alignContent: 'flex-start',
         justifyContent: 'flex-start',
-        alignItems: 'center',
-
-        border: '1px solid white'
+        alignItems: 'center'
     }
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <Box component={'div'} p={1}>
-                <LinkCustom to={`${SettingRoute.app.dashboard.TO}`}>Dashboard</LinkCustom>
-            </Box>
-            <Box component={'div'} p={1}>
-                <LinkCustom to={`${SettingRoute.app.task.TO}`}>Tasks</LinkCustom>
-            </Box>
-            <Box component={'div'} p={1}>
-                <LinkCustom to={`${SettingRoute.app.error.TO}`}>Error</LinkCustom>
+            <Box component={'div'} mx={2}>
+                <CustomLink to={`#`} disabled={true}>
+                    <CustomLinkIcon>
+                        <IconTranslate/>
+                    </CustomLinkIcon>
+                    <CustomLinkTypography>
+                        {'English'}
+                    </CustomLinkTypography>
+                </CustomLink>
             </Box>
         </Box>
     )
