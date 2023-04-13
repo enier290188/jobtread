@@ -96,9 +96,9 @@ const CustomLinkTypography = ({children}) => {
     )
 }
 
-const MobileContent = () => {
-    const sxContent = {
-        display: {xs: 'flex', sm: 'none'},
+const MobileContentTop = () => {
+    const sxContainer = {
+        display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignContent: 'flex-start',
@@ -107,15 +107,76 @@ const MobileContent = () => {
     }
 
     return (
-        <Box component={'div'} sx={sxContent}>
-            ...
+        <Box component={'div'} sx={sxContainer}>
+            <CustomBrand>
+                <CustomBrandIcon/>
+            </CustomBrand>
+            <Box component={'span'} margin={'auto'}/>
+            <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
+                <CustomLinkIcon>
+                    <IconDashboard/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'Dashboard'}
+                </CustomLinkTypography>
+            </CustomLink>
+            <CustomLink to={`${SettingRoute.app.task.TO}`}>
+                <CustomLinkIcon>
+                    <IconTask/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'Tasks'}
+                </CustomLinkTypography>
+            </CustomLink>
+        </Box>
+    )
+}
+
+const MobileContentBottom = () => {
+    const sxContainer = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignContent: 'flex-start',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    }
+
+    return (
+        <Box component={'div'} sx={sxContainer}>
+            <Box component={'span'} margin={'auto'}/>
+            <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
+                <CustomLinkIcon>
+                    <IconTranslate/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'English'}
+                </CustomLinkTypography>
+            </CustomLink>
+        </Box>
+    )
+}
+
+const MobileContent = () => {
+    const sxContainer = {
+        display: {xs: 'flex', sm: 'none'},
+        flexDirection: 'column',
+        flexWrap: 'nowrap',
+        alignContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'stretch'
+    }
+
+    return (
+        <Box component={'div'} sx={sxContainer}>
+            <MobileContentTop/>
+            <MobileContentBottom/>
         </Box>
     )
 }
 
 const DesktopContentLeft = () => {
     const sxContainer = {
-        flexGrow: 1,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
@@ -163,16 +224,14 @@ const DesktopContentRight = () => {
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <Box component={'div'} mx={2}>
-                <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
-                    <CustomLinkIcon>
-                        <IconTranslate/>
-                    </CustomLinkIcon>
-                    <CustomLinkTypography>
-                        {'English'}
-                    </CustomLinkTypography>
-                </CustomLink>
-            </Box>
+            <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
+                <CustomLinkIcon>
+                    <IconTranslate/>
+                </CustomLinkIcon>
+                <CustomLinkTypography>
+                    {'English'}
+                </CustomLinkTypography>
+            </CustomLink>
         </Box>
     )
 }
@@ -190,6 +249,7 @@ const DesktopContent = () => {
     return (
         <Box component={'div'} sx={sxContainer}>
             <DesktopContentLeft/>
+            <Box component={'div'} marginX={'auto'}/>
             <DesktopContentRight/>
         </Box>
     )
