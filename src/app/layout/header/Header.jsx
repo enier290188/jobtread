@@ -1,6 +1,6 @@
 import {Avatar, Box, Container, Link, Typography} from '@mui/material'
 import {NavLink, useMatch, useResolvedPath} from 'react-router-dom'
-import {AssetSvgBrand} from '../../asset/index.js'
+import {AssetSvgBrand} from '../../asset'
 import {SettingRoute} from '../../setting'
 
 const LinkCustom = ({children, to, ...props}) => {
@@ -21,7 +21,9 @@ const Brand = () => {
         flexWrap: 'nowrap',
         alignContent: 'flex-start',
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
+        textDecoration: 'none',
+        color: theme => theme.palette.common.white
     }
     const sxAvatar = {
         width: theme => theme.spacing(10),
@@ -29,10 +31,9 @@ const Brand = () => {
     }
 
     return (
-        <Box component={'div'} sx={sxContainer}>
-            <Avatar component={'div'} variant={'square'} src={AssetSvgBrand} sx={sxAvatar}/>
-            <Box component={'div'} mt={0} mr={0.5} mb={0} ml={0.5} p={0}/>
-            <Typography component={'div'} variant={'h4'}>JobTread</Typography>
+        <Box component={NavLink} to={SettingRoute.app.TO} sx={sxContainer}>
+            <Avatar component={'span'} variant={'square'} src={AssetSvgBrand} sx={sxAvatar}/>
+            <Typography component={'span'} variant={'h4'}>JobTread</Typography>
         </Box>
     )
 }
@@ -77,7 +78,7 @@ export const Header = () => {
     }
 
     return (
-        <Box component={'header'} m={0} pt={1} pr={0} pb={1} pl={0} sx={sxHeader}>
+        <Box component={'header'} m={0} pt={1} pr={2} pb={1} pl={2} sx={sxHeader}>
             <Container component={'div'}>
                 <Box component={'div'} sx={sxContainer}>
                     <Box component={'div'} sx={sxContent}>
