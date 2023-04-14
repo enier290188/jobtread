@@ -1,39 +1,52 @@
-import {Box, Divider, Link, Typography} from '@mui/material'
-import {Navigate, NavLink, Outlet, Route, Routes, useMatch, useResolvedPath} from 'react-router-dom'
+import {Dashboard as IconDashboard} from '@mui/icons-material'
+import {Box, Divider, Typography} from '@mui/material'
+import {Route, Routes} from 'react-router-dom'
 import {ComponentNavigateToAppErrorNotFound} from '../../component'
-import {SettingRoute} from '../../setting'
-import {RouteContent001} from './content001'
-import {RouteContent002} from './content002'
-import {RouteContent003} from './content003'
 
-const LinkCustom = ({children, to, ...props}) => {
-    const resolvedPath = useResolvedPath(to)
-    const match = useMatch({path: resolvedPath.pathname, end: false})
+const View = () => {
+    const sxContainer = {
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'nowrap',
+        alignContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'stretch',
+        margin: theme => theme.spacing(0),
+        padding: theme => theme.spacing(2),
+
+        background: theme => theme.palette.common.white,
+        border: theme => `1px solid ${theme.palette.divider}`
+    }
+    const sxTitle = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    }
+    const sxTitleIcon = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+    const sxTitleTypography = {}
 
     return (
-        <Link component={NavLink} to={to} sx={{textDecoration: match ? 'underline' : 'none'}} {...props}>
-            {children}
-        </Link>
-    )
-}
-
-const Layout = () => {
-    return (
-        <Box component={'div'}>
-            <Typography component={'p'} variant={'body1'}>---Layout Main Dashboard---</Typography>
-            <Box component={'div'} display={'flex'}>
-                <Box component={'div'} p={1}>
-                    <LinkCustom to={`${SettingRoute.app.dashboard.content001.TO}`}>Content001</LinkCustom>
+        <Box component={'div'} sx={sxContainer}>
+            <Box component={'div'} sx={sxTitle}>
+                <Box component={'div'} sx={sxTitleIcon}>
+                    <IconDashboard/>
                 </Box>
-                <Box component={'div'} p={1}>
-                    <LinkCustom to={`${SettingRoute.app.dashboard.content002.TO}`}>Content002</LinkCustom>
-                </Box>
-                <Box component={'div'} p={1}>
-                    <LinkCustom to={`${SettingRoute.app.dashboard.content003.TO}`}>Content003</LinkCustom>
-                </Box>
+                <Typography component={'span'} variant={'h6'} noWrap={true} sx={sxTitleTypography}>
+                    {'Dashboard'}
+                </Typography>
             </Box>
-            <Divider component={'div'}/>
-            <Outlet/>
+            <Divider/>
+            ...
         </Box>
     )
 }
@@ -41,11 +54,8 @@ const Layout = () => {
 export const Dashboard = () => {
     return (
         <Routes>
-            <Route path={``} element={<Layout/>}>
-                <Route index element={<Navigate to={`${SettingRoute.app.dashboard.content002.TO}`}/>}/>
-                <Route path={`${SettingRoute.app.dashboard.content001.PATH}*`} element={<RouteContent001/>}/>
-                <Route path={`${SettingRoute.app.dashboard.content002.PATH}*`} element={<RouteContent002/>}/>
-                <Route path={`${SettingRoute.app.dashboard.content003.PATH}*`} element={<RouteContent003/>}/>
+            <Route path={``}>
+                <Route index element={<View/>}/>
                 <Route path={`*`} element={<ComponentNavigateToAppErrorNotFound/>}/>
             </Route>
         </Routes>

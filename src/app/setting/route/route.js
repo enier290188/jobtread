@@ -6,16 +6,7 @@ const route = {
     app: {
         [PATH]: 'app/',
         dashboard: {
-            [PATH]: 'dashboard/',
-            content001: {
-                [PATH]: 'content001/'
-            },
-            content002: {
-                [PATH]: 'content002/'
-            },
-            content003: {
-                [PATH]: 'content003/'
-            }
+            [PATH]: 'dashboard/'
         },
         task: {
             [PATH]: 'task/',
@@ -42,9 +33,6 @@ route[TO] = `${route[PATH]}`
 route.app[TO] = `${route[TO]}${route.app[PATH]}`
 
 route.app.dashboard[TO] = `${route.app[TO]}${route.app.dashboard[PATH]}`
-route.app.dashboard.content001[TO] = `${route.app.dashboard[TO]}${route.app.dashboard.content001[PATH]}`
-route.app.dashboard.content002[TO] = `${route.app.dashboard[TO]}${route.app.dashboard.content002[PATH]}`
-route.app.dashboard.content003[TO] = `${route.app.dashboard[TO]}${route.app.dashboard.content003[PATH]}`
 
 route.app.task[TO] = `${route.app[TO]}${route.app.task[PATH]}`
 route.app.task.content001[TO] = `${route.app.task[TO]}${route.app.task.content001[PATH]}`

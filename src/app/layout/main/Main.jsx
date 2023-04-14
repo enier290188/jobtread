@@ -1,9 +1,17 @@
-import {Box, Container, Typography} from '@mui/material'
+import {Box, Container, useMediaQuery} from '@mui/material'
 
 export const Main = ({children}) => {
+    const mediaQuerySmDown = useMediaQuery((theme) => theme.breakpoints.down('md'))
+
     const sxMain = {
         flexGrow: 1,
-        backgroundColor: theme => theme.palette.grey['50'],
+        margin: theme => theme.spacing(0),
+        padding: theme => ({
+            sm: theme.spacing(0),
+            md: theme.spacing(2)
+        }),
+        backgroundColor: theme => mediaQuerySmDown ? theme.palette.common.white : theme.palette.grey['100'],
+        color: theme => theme.palette.text.primary,
         overflow: 'hidden auto'
     }
     const sxContainer = {
@@ -16,10 +24,9 @@ export const Main = ({children}) => {
     }
 
     return (
-        <Box component={'main'} m={0} pt={2} pr={2} pb={2} pl={2} sx={sxMain}>
+        <Box component={'main'} sx={sxMain}>
             <Container component={'div'}>
                 <Box component={'div'} sx={sxContainer}>
-                    <Typography component={'p'} variant={'body1'}>---Layout Main---</Typography>
                     {children}
                 </Box>
             </Container>

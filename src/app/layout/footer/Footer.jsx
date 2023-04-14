@@ -2,6 +2,8 @@ import {Box, Container, Typography} from '@mui/material'
 
 export const Footer = () => {
     const sxFooter = {
+        margin: theme => theme.spacing(0),
+        padding: theme => theme.spacing(0, 2, 0, 2),
         backgroundColor: theme => theme.palette.secondary.main,
         color: theme => theme.palette.common.white
     }
@@ -17,7 +19,7 @@ export const Footer = () => {
     const date = new Date()
 
     return (
-        <Box component={'footer'} m={0} pt={0} pr={2} pb={0} pl={2} sx={sxFooter}>
+        <Box component={'footer'} sx={sxFooter}>
             <Container component={'div'}>
                 <Box component={'div'} sx={sxContainer}>
                     <Typography component={'p'} variant={'caption'} textAlign={'center'}>{date.getFullYear()}, Celsitud LLC. All rights reserved.</Typography>

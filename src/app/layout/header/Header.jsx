@@ -38,7 +38,7 @@ const CustomBrandTypography = () => {
     const sxContainer = {}
 
     return (
-        <Typography component={'span'} variant={'h4'} sx={sxContainer}>
+        <Typography component={'span'} variant={'h4'} noWrap={true} sx={sxContainer}>
             {`JobTread`}
         </Typography>
     )
@@ -90,7 +90,7 @@ const CustomLinkTypography = ({children}) => {
     const sxContainer = {}
 
     return (
-        <Typography component={'span'} variant={'body1'} sx={sxContainer}>
+        <Typography component={'span'} variant={'body1'} noWrap={true} sx={sxContainer}>
             {children}
         </Typography>
     )
@@ -159,7 +159,7 @@ const MobileContentBottom = () => {
 
 const MobileContent = () => {
     const sxContainer = {
-        display: {xs: 'flex', sm: 'none'},
+        display: {xs: 'flex', md: 'none'},
         flexDirection: 'column',
         flexWrap: 'nowrap',
         alignContent: 'center',
@@ -238,7 +238,7 @@ const DesktopContentRight = () => {
 
 const DesktopContent = () => {
     const sxContainer = {
-        display: {xs: 'none', sm: 'flex'},
+        display: {xs: 'none', md: 'flex'},
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignContent: 'flex-start',
@@ -257,6 +257,8 @@ const DesktopContent = () => {
 
 export const Header = () => {
     const sxHeader = {
+        margin: theme => theme.spacing(0),
+        padding: theme => theme.spacing(0, 2, 0, 2),
         backgroundColor: theme => theme.palette.primary.main,
         color: theme => theme.palette.common.white
     }
@@ -270,7 +272,7 @@ export const Header = () => {
     }
 
     return (
-        <Box component={'header'} m={0} pt={0} pr={2} pb={0} pl={2} sx={sxHeader}>
+        <Box component={'header'} sx={sxHeader}>
             <Container component={'div'}>
                 <Box component={'div'} sx={sxContainer}>
                     <MobileContent/>
