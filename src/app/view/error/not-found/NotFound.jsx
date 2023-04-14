@@ -1,13 +1,14 @@
-import {Box} from '@mui/material'
+import {Typography} from '@mui/material'
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import {ComponentNavigateToAppErrorNotFound} from '../../../component'
 
 const View = () => {
     return (
-        <Box component={'div'}>
-            <h3>View NotFound</h3>
-        </Box>
+        <>
+            <Typography component={'h5'} variant={'h5'}><i>- Error 404 -</i></Typography>
+            <Typography component={'h6'} variant={'h6'}>The page you're looking for can't be found.</Typography>
+        </>
     )
 }
 
