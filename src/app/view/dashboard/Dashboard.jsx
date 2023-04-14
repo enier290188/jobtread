@@ -43,18 +43,18 @@ const reducer = (state, action) => {
 }
 
 const Task = () => {
-    const [responseTimeState, responseTimeDispatch] = React.useReducer(reducer, INITIAL_STATE)
-    const interval = useInterval()
+    const [responseTimeState, responseTimeDispatch] = React.useReducer(reducer, INITIAL_STATE, undefined)
+    const [timeout, setTimeout] = React.useState(1000)
+    const [interval] = useInterval(timeout)
 
     console.log(interval)
 
     return (
-        <>...</>
+        <>{interval}</>
     )
 }
 
 const View = () => {
-
     return (
         <ComponentContainer>
             <ComponentContainerHead>
