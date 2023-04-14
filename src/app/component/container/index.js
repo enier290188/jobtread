@@ -1,13 +1,15 @@
 import {Container} from './Container.jsx'
 import {ContainerContent} from './ContainerContent.jsx'
-import {ContainerTitle} from './ContainerTitle.jsx'
-import {ContainerTitleIcon} from './ContainerTitleIcon.jsx'
-import {ContainerTitleTypography} from './ContainerTitleTypography.jsx'
+import {ContainerHead} from './ContainerHead.jsx'
+import {ContainerHeadTitle} from './ContainerHeadTitle.jsx'
+import {ContainerHeadTitleIcon} from './ContainerHeadTitleIcon.jsx'
+import {ContainerHeadTitleTypography} from './ContainerHeadTitleTypography.jsx'
 
 export {
     Container,
     ContainerContent,
-    ContainerTitle,
-    ContainerTitleIcon,
-    ContainerTitleTypography
+    ContainerHead,
+    ContainerHeadTitle,
+    ContainerHeadTitleIcon,
+    ContainerHeadTitleTypography
 }
