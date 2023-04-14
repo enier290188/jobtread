@@ -4,8 +4,6 @@ import {Route, Routes} from 'react-router-dom'
 import {ComponentContainer, ComponentContainerContent, ComponentContainerHead, ComponentContainerHeadTitle, ComponentContainerHeadTitleIcon, ComponentContainerHeadTitleTypography, ComponentNavigateToAppErrorNotFound} from '../../component'
 
 const View = () => {
-    const sxTitleTypography = {}
-
     return (
         <ComponentContainer>
             <ComponentContainerHead>
