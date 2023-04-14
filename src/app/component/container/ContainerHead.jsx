@@ -1,5 +1,11 @@
+import {Box} from '@mui/material'
+
 export const ContainerHead = ({children}) => {
+    const sxContainer = {}
+
     return (
-        {children}
+        <Box component={'div'} sx={sxContainer}>
+            {children}
+        </Box>
     )
 }
