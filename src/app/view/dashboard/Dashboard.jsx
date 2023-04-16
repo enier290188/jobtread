@@ -1,5 +1,5 @@
-import {Dashboard as IconDashboard} from '@mui/icons-material'
-import {Divider} from '@mui/material'
+import {CleaningServices as IconCleaningServices, Dashboard as IconDashboard, PauseCircle as IconPauseCircle, PlayCircle as IconPlayCircle, Save as IconSave} from '@mui/icons-material'
+import {Box, Button, ButtonGroup, Divider, Slider, Typography} from '@mui/material'
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import {ComponentContainer, ComponentContainerContent, ComponentContainerHead, ComponentContainerHeadTitle, ComponentContainerHeadTitleIcon, ComponentContainerHeadTitleTypography, ComponentNavigateToAppErrorNotFound} from '../../component'
@@ -42,15 +42,59 @@ const reducer = (state, action) => {
     }
 }
 
-const Task = () => {
+const Task = ({timeout = 1000, isRunning= true}) => {
     const [responseTimeState, responseTimeDispatch] = React.useReducer(reducer, INITIAL_STATE, undefined)
-    const [timeout, setTimeout] = React.useState(1000)
-    const [interval] = useInterval(timeout)
+
+    const [intervalTimeout, setIntervalTimeout] = React.useState(timeout)
+    const [intervalIsRunning, setIntervalIsRunning] = React.useState(isRunning)
+    const [interval, startInterval, stopInterval] = useInterval(intervalTimeout, intervalIsRunning)
 
     console.log(interval)
+    console.log('')
+
+    const handleIntervalClean = () => {
+    }
+
+    const handleIntervalPlay = () => {
+        setIntervalIsRunning(true)
+        startInterval()
+    }
+
+    const handleIntervalPause = () => {
+        setIntervalIsRunning(false)
+        stopInterval()
+    }
 
     return (
-        <>{interval}</>
+        <Box component={'div'} mt={2} mr={0} mb={0} ml={0} p={2} border={1}>
+            <Box component={'div'} sx={{display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', alignContent: 'center', justifyContent: 'center', alignItems: 'center'}}>
+                <ButtonGroup component={'div'} variant={'contained'} size={'small'}>
+                    <Button component={'div'} startIcon={<IconCleaningServices/>} onClick={handleIntervalClean}>
+                        {'Clean'}
+                    </Button>
+                    <Button component={'div'} startIcon={<IconPlayCircle/>} disabled={intervalIsRunning === true} onClick={handleIntervalPlay}>
+                        {'Play'}
+                    </Button>
+                    <Button component={'div'} startIcon={<IconPauseCircle/>} disabled={intervalIsRunning === false} onClick={handleIntervalPause}>
+                        {'Pause'}
+                    </Button>
+                </ButtonGroup>
+                <Box component={'div'} p={2}/>
+                <Slider component={'div'} min={100} max={5000} step={100} marks={true} valueLabelDisplay={'on'} valueLabelFormat={(value) => `${value} milliseconds`} value={intervalTimeout} onChange={(event) => setIntervalTimeout(event.target.value)}/>
+                <Box component={'div'} p={2}/>
+                <ButtonGroup component={'div'} variant={'contained'} size={'small'}>
+                    <Button component={'div'} startIcon={<IconSave/>}>
+                        {'Save'}
+                    </Button>
+                </ButtonGroup>
+            </Box>
+            <Box component={'div'} my={2}>
+                <Divider/>
+            </Box>
+            <Typography component={'p'} variant={'body1'}>
+                {interval}
+            </Typography>
+        </Box>
     )
 }
 
@@ -69,7 +113,11 @@ const View = () => {
             </ComponentContainerHead>
             <Divider/>
             <ComponentContainerContent>
-                <Task/>
+                <Task timeout={1000}/>
+                <Task timeout={2000}/>
+                <Task timeout={3000}/>
+                <Task timeout={4000}/>
+                <Task timeout={5000}/>
             </ComponentContainerContent>
         </ComponentContainer>
     )
