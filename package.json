@@ -26,7 +26,9 @@
     "scripts": {
         "dev": "vite dev --host localhost --port 3000 --strictPort",
         "build": "vite build",
-        "preview": "vite preview --host localhost --port 8080 --strictPort"
+        "preview": "vite preview --host localhost --port 8080 --strictPort",
+        "eslint:check": "eslint src/app",
+        "prettier:check": "prettier src/app --check"
     },
     "dependencies": {
         "@emotion/react": "11.10.6",
