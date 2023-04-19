@@ -1,27 +1,27 @@
-import {useEffect, useRef, useState} from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const getIntervalInitial = () => Date.now()
 
-export const useInterval = (timeout = 1000, isRunning = true) => {
+export const useInterval = (isRunning = true, timeout = 1000) => {
     const [intervalState, setIntervalState] = useState(getIntervalInitial)
     const intervalRef = useRef(null)
 
-    const startInterval = () => {
-        if (intervalRef.current) {
-            stopInterval()
-        }
-        intervalRef.current = setInterval(() => setIntervalState(Date.now()), timeout)
-    }
-
-    const stopInterval = () => {
+    const startInterval = useCallback(() => {
         clearInterval(intervalRef.current)
-    }
+        if (isRunning) {
+            intervalRef.current = setInterval(() => setIntervalState(Date.now()), timeout)
+        }
+    }, [isRunning, timeout])
+
+    const stopInterval = useCallback(() => {
+        clearInterval(intervalRef.current)
+    }, [])
 
     useEffect(() => {
-        intervalRef.current = setInterval(() => setIntervalState(Date.now()), timeout)
+        startInterval()
 
-        return () => clearInterval(intervalRef.current) // Cleanup
-    }, [])
+        return () => stopInterval() // Cleanup
+    }, [startInterval, stopInterval])
 
     return [intervalState, startInterval, stopInterval]
 }
