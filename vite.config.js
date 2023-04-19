@@ -9,9 +9,7 @@ export default defineConfig({
         // GitHub Issue: https://github.com/aws/aws-sdk-js/issues/3673
         global: {}
     },
-    plugins: [
-        react()
-    ],
+    plugins: [react()],
     resolve: {
         alias: {
             // AWS Amplify needs this to work
