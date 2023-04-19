@@ -27,7 +27,7 @@
         "dev": "vite dev --host localhost --port 3000 --strictPort",
         "build": "vite build",
         "preview": "vite preview --host localhost --port 8080 --strictPort",
-        "eslint:check": "eslint src/app",
+        "eslint:check": "eslint src/app --quiet --ext .js,.jsx",
         "prettier:check": "prettier src/app --check"
     },
     "dependencies": {
