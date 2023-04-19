@@ -1,4 +1,5 @@
-import {Box, CircularProgress, Typography} from '@mui/material'
+import { Box, CircularProgress, Typography } from '@mui/material'
+import React from 'react'
 
 export const LoadingText = () => {
     const sxContainer = {
@@ -8,20 +9,22 @@ export const LoadingText = () => {
         alignContent: 'center',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        margin: theme => theme.spacing(0),
-        padding: theme => theme.spacing(0),
+        margin: (theme) => theme.spacing(0),
+        padding: (theme) => theme.spacing(0),
         backgroundColor: 'transparent',
-        color: theme => theme.palette.grey[600]
+        color: (theme) => theme.palette.grey[600]
     }
     const sxCircularProgress = {
-        margin: theme => theme.spacing(0, 1, 0, 0),
-        padding: theme => theme.spacing(0)
+        margin: (theme) => theme.spacing(0, 1, 0, 0),
+        padding: (theme) => theme.spacing(0)
     }
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <CircularProgress component={'div'} variant={'indeterminate'} color={'inherit'} size={'1em'} sx={sxCircularProgress}/>
-            <Typography component={'p'} variant={'body2'}>loading...</Typography>
+            <CircularProgress component={'div'} variant={'indeterminate'} color={'inherit'} size={'1em'} sx={sxCircularProgress} />
+            <Typography component={'p'} variant={'body2'}>
+                loading...
+            </Typography>
         </Box>
     )
 }

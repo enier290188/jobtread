@@ -1,5 +1,3 @@
-import {Task as RouteTask} from './Task.jsx'
+import { Task as RouteTask } from './Task.jsx'
 
-export {
-    RouteTask
-}
+export { RouteTask }

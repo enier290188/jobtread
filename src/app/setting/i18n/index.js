@@ -1,5 +1,3 @@
-import {i18n} from './i18n.js'
+import { i18n } from './i18n.js'
 
-export {
-    i18n
-}
+export { i18n }

@@ -1,5 +1,3 @@
-import {Error as RouteError} from './Error.jsx'
+import { Error as RouteError } from './Error.jsx'
 
-export {
-    RouteError
-}
+export { RouteError }

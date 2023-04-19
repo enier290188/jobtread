@@ -1,5 +1,3 @@
-import {Content001 as RouteContent001} from './Content001.jsx'
+import { Content001 as RouteContent001 } from './Content001.jsx'
 
-export {
-    RouteContent001
-}
+export { RouteContent001 }

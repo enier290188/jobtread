@@ -1,6 +1,7 @@
-import {Typography} from '@mui/material'
+import { Typography } from '@mui/material'
+import React from 'react'
 
-export const ContainerHeadTitleTypography = ({children}) => {
+export const ContainerHeadTitleTypography = ({ children }) => {
     const sxContainer = {}
 
     return (

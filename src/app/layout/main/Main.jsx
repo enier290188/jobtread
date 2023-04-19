@@ -1,17 +1,18 @@
-import {Box, Container, useMediaQuery} from '@mui/material'
+import { Box, Container, useMediaQuery } from '@mui/material'
+import React from 'react'
 
-export const Main = ({children}) => {
+export const Main = ({ children }) => {
     const mediaQuerySmDown = useMediaQuery((theme) => theme.breakpoints.down('md'))
 
     const sxMain = {
         flexGrow: 1,
-        margin: theme => theme.spacing(0),
-        padding: theme => ({
+        margin: (theme) => theme.spacing(0),
+        padding: (theme) => ({
             sm: theme.spacing(0),
             md: theme.spacing(2)
         }),
-        backgroundColor: theme => mediaQuerySmDown ? theme.palette.common.white : theme.palette.grey['100'],
-        color: theme => theme.palette.text.primary,
+        backgroundColor: (theme) => (mediaQuerySmDown ? theme.palette.common.white : theme.palette.grey['100']),
+        color: (theme) => theme.palette.text.primary,
         overflow: 'hidden auto'
     }
     const sxContainer = {

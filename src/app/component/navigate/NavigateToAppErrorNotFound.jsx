@@ -1,8 +1,7 @@
-import {SettingRoute} from '../../setting'
-import {NavigateTo} from './NavigateTo'
+import React from 'react'
+import { SettingRoute } from '../../setting'
+import { NavigateTo } from './NavigateTo'
 
 export const NavigateToAppErrorNotFound = () => {
-    return (
-        <NavigateTo to={`${SettingRoute.app.error.notFound.TO}`}/>
-    )
+    return <NavigateTo to={`${SettingRoute.app.error.notFound.TO}`} />
 }

@@ -1,9 +1,10 @@
-import {Box, LinearProgress} from '@mui/material'
+import { Box, LinearProgress } from '@mui/material'
+import React from 'react'
 
 export const LoadingLinearProgress = () => {
     const sxContainer = {
-        margin: theme => theme.spacing(0),
-        padding: theme => theme.spacing(0)
+        margin: (theme) => theme.spacing(0),
+        padding: (theme) => theme.spacing(0)
     }
     const sxLinearProgress = {
         height: '1px'
@@ -11,7 +12,7 @@ export const LoadingLinearProgress = () => {
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <LinearProgress component={'div'} variant={'indeterminate'} color={'primary'} sx={sxLinearProgress}/>
+            <LinearProgress component={'div'} variant={'indeterminate'} color={'primary'} sx={sxLinearProgress} />
         </Box>
     )
 }

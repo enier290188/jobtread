@@ -1,5 +1,3 @@
-import {theme} from './theme.js'
+import { theme } from './theme.js'
 
-export {
-    theme
-}
+export { theme }

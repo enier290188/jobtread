@@ -1,5 +1,3 @@
-import {Alert} from './Alert.jsx'
+import { Alert } from './Alert.jsx'
 
-export {
-    Alert
-}
+export { Alert }

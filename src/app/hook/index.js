@@ -1,7 +1,4 @@
-import {useInterval} from './useInterval.js'
-import {useNavigatorOnline} from './useNavigatorOnline.js'
+import { useInterval } from './useInterval.js'
+import { useNavigatorOnline } from './useNavigatorOnline.js'
 
-export {
-    useInterval,
-    useNavigatorOnline
-}
+export { useInterval, useNavigatorOnline }

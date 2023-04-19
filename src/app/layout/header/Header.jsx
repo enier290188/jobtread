@@ -1,10 +1,11 @@
-import {Dashboard as IconDashboard, Task as IconTask, Translate as IconTranslate} from '@mui/icons-material'
-import {Avatar, Box, Button, Container, Typography} from '@mui/material'
-import {NavLink, useMatch, useResolvedPath} from 'react-router-dom'
-import {AssetSvgBrand} from '../../asset'
-import {SettingRoute} from '../../setting'
+import { Dashboard as IconDashboard, Task as IconTask, Translate as IconTranslate } from '@mui/icons-material'
+import { Avatar, Box, Button, Container, Typography } from '@mui/material'
+import React from 'react'
+import { NavLink, useMatch, useResolvedPath } from 'react-router-dom'
+import { AssetSvgBrand } from '../../asset'
+import { SettingRoute } from '../../setting'
 
-const CustomBrand = ({children}) => {
+const CustomBrand = ({ children }) => {
     const sxContainer = {
         display: 'flex',
         flexDirection: 'row',
@@ -13,7 +14,7 @@ const CustomBrand = ({children}) => {
         justifyContent: 'center',
         alignItems: 'center',
         textDecoration: 'none',
-        color: theme => theme.palette.common.white
+        color: (theme) => theme.palette.common.white
     }
 
     return (
@@ -25,13 +26,11 @@ const CustomBrand = ({children}) => {
 
 const CustomBrandIcon = () => {
     const sxContainer = {
-        width: theme => theme.spacing(10),
-        height: theme => theme.spacing(10)
+        width: (theme) => theme.spacing(10),
+        height: (theme) => theme.spacing(10)
     }
 
-    return (
-        <Avatar component={'span'} variant={'square'} src={AssetSvgBrand} sx={sxContainer}/>
-    )
+    return <Avatar component={'span'} variant={'square'} src={AssetSvgBrand} sx={sxContainer} />
 }
 
 const CustomBrandTypography = () => {
@@ -44,9 +43,9 @@ const CustomBrandTypography = () => {
     )
 }
 
-const CustomLink = ({children, to, ...props}) => {
+const CustomLink = ({ children, to, ...props }) => {
     const resolvedPath = useResolvedPath(to)
-    const match = useMatch({path: resolvedPath.pathname, end: false})
+    const match = useMatch({ path: resolvedPath.pathname, end: false })
 
     const sxContainer = {
         display: 'flex',
@@ -56,7 +55,7 @@ const CustomLink = ({children, to, ...props}) => {
         justifyContent: 'center',
         alignItems: 'center',
         textDecoration: match ? 'underline' : 'none',
-        color: theme => theme.palette.common.white,
+        color: (theme) => theme.palette.common.white,
         '&:hover': {
             textDecoration: match ? 'underline' : 'none'
         }
@@ -69,7 +68,7 @@ const CustomLink = ({children, to, ...props}) => {
     )
 }
 
-const CustomLinkIcon = ({children}) => {
+const CustomLinkIcon = ({ children }) => {
     const sxContainer = {
         display: 'flex',
         flexDirection: 'row',
@@ -86,7 +85,7 @@ const CustomLinkIcon = ({children}) => {
     )
 }
 
-const CustomLinkTypography = ({children}) => {
+const CustomLinkTypography = ({ children }) => {
     const sxContainer = {}
 
     return (
@@ -109,17 +108,15 @@ const MobileContentTop = () => {
     return (
         <Box component={'div'} sx={sxContainer}>
             <CustomBrand>
-                <CustomBrandIcon/>
-                <CustomBrandTypography/>
+                <CustomBrandIcon />
+                <CustomBrandTypography />
             </CustomBrand>
-            <Box component={'span'} margin={'auto'}/>
+            <Box component={'span'} margin={'auto'} />
             <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
                 <CustomLinkIcon>
-                    <IconTranslate/>
+                    <IconTranslate />
                 </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'English'}
-                </CustomLinkTypography>
+                <CustomLinkTypography>{'English'}</CustomLinkTypography>
             </CustomLink>
         </Box>
     )
@@ -139,19 +136,15 @@ const MobileContentBottom = () => {
         <Box component={'div'} sx={sxContainer}>
             <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
                 <CustomLinkIcon>
-                    <IconDashboard/>
+                    <IconDashboard />
                 </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'Dashboard'}
-                </CustomLinkTypography>
+                <CustomLinkTypography>{'Dashboard'}</CustomLinkTypography>
             </CustomLink>
             <CustomLink to={`${SettingRoute.app.task.TO}`}>
                 <CustomLinkIcon>
-                    <IconTask/>
+                    <IconTask />
                 </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'Tasks'}
-                </CustomLinkTypography>
+                <CustomLinkTypography>{'Tasks'}</CustomLinkTypography>
             </CustomLink>
         </Box>
     )
@@ -159,7 +152,7 @@ const MobileContentBottom = () => {
 
 const MobileContent = () => {
     const sxContainer = {
-        display: {xs: 'flex', md: 'none'},
+        display: { xs: 'flex', md: 'none' },
         flexDirection: 'column',
         flexWrap: 'nowrap',
         alignContent: 'center',
@@ -169,8 +162,8 @@ const MobileContent = () => {
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <MobileContentTop/>
-            <MobileContentBottom/>
+            <MobileContentTop />
+            <MobileContentBottom />
         </Box>
     )
 }
@@ -188,25 +181,21 @@ const DesktopContentLeft = () => {
     return (
         <Box component={'div'} sx={sxContainer}>
             <CustomBrand>
-                <CustomBrandIcon/>
-                <CustomBrandTypography/>
+                <CustomBrandIcon />
+                <CustomBrandTypography />
             </CustomBrand>
-            <Box component={'span'} mr={4}/>
+            <Box component={'span'} mr={4} />
             <CustomLink to={`${SettingRoute.app.dashboard.TO}`}>
                 <CustomLinkIcon>
-                    <IconDashboard/>
+                    <IconDashboard />
                 </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'Dashboard'}
-                </CustomLinkTypography>
+                <CustomLinkTypography>{'Dashboard'}</CustomLinkTypography>
             </CustomLink>
             <CustomLink to={`${SettingRoute.app.task.TO}`}>
                 <CustomLinkIcon>
-                    <IconTask/>
+                    <IconTask />
                 </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'Tasks'}
-                </CustomLinkTypography>
+                <CustomLinkTypography>{'Tasks'}</CustomLinkTypography>
             </CustomLink>
         </Box>
     )
@@ -226,11 +215,9 @@ const DesktopContentRight = () => {
         <Box component={'div'} sx={sxContainer}>
             <CustomLink to={`${SettingRoute.app.error.TO}`} disabled={true}>
                 <CustomLinkIcon>
-                    <IconTranslate/>
+                    <IconTranslate />
                 </CustomLinkIcon>
-                <CustomLinkTypography>
-                    {'English'}
-                </CustomLinkTypography>
+                <CustomLinkTypography>{'English'}</CustomLinkTypography>
             </CustomLink>
         </Box>
     )
@@ -238,7 +225,7 @@ const DesktopContentRight = () => {
 
 const DesktopContent = () => {
     const sxContainer = {
-        display: {xs: 'none', md: 'flex'},
+        display: { xs: 'none', md: 'flex' },
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignContent: 'flex-start',
@@ -248,19 +235,19 @@ const DesktopContent = () => {
 
     return (
         <Box component={'div'} sx={sxContainer}>
-            <DesktopContentLeft/>
-            <Box component={'div'} marginX={'auto'}/>
-            <DesktopContentRight/>
+            <DesktopContentLeft />
+            <Box component={'div'} marginX={'auto'} />
+            <DesktopContentRight />
         </Box>
     )
 }
 
 export const Header = () => {
     const sxHeader = {
-        margin: theme => theme.spacing(0),
-        padding: theme => theme.spacing(0, 2, 0, 2),
-        backgroundColor: theme => theme.palette.primary.main,
-        color: theme => theme.palette.common.white
+        margin: (theme) => theme.spacing(0),
+        padding: (theme) => theme.spacing(0, 2, 0, 2),
+        backgroundColor: (theme) => theme.palette.primary.main,
+        color: (theme) => theme.palette.common.white
     }
     const sxContainer = {
         display: 'flex',
@@ -275,8 +262,8 @@ export const Header = () => {
         <Box component={'header'} sx={sxHeader}>
             <Container component={'div'}>
                 <Box component={'div'} sx={sxContainer}>
-                    <MobileContent/>
-                    <DesktopContent/>
+                    <MobileContent />
+                    <DesktopContent />
                 </Box>
             </Container>
         </Box>

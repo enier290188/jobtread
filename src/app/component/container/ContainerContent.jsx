@@ -1,6 +1,7 @@
-import {Box} from '@mui/material'
+import { Box } from '@mui/material'
+import React from 'react'
 
-export const ContainerContent = ({children}) => {
+export const ContainerContent = ({ children }) => {
     const sxContainer = {
         display: 'flex',
         flexDirection: 'column',

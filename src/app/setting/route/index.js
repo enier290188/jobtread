@@ -1,5 +1,3 @@
-import {route} from './route.js'
+import { route } from './route.js'
 
-export {
-    route
-}
+export { route }

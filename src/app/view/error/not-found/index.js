@@ -1,5 +1,3 @@
-import {NotFound as RouteNotFound} from './NotFound.jsx'
+import { NotFound as RouteNotFound } from './NotFound.jsx'
 
-export {
-    RouteNotFound
-}
+export { RouteNotFound }

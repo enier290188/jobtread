@@ -1,7 +1,4 @@
-import {LoadingLinearProgress} from './LoadingLinearProgress.jsx'
-import {LoadingText} from './LoadingText.jsx'
+import { LoadingLinearProgress } from './LoadingLinearProgress.jsx'
+import { LoadingText } from './LoadingText.jsx'
 
-export {
-    LoadingLinearProgress,
-    LoadingText
-}
+export { LoadingLinearProgress, LoadingText }

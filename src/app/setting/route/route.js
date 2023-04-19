@@ -42,6 +42,4 @@ route.app.task.content003[TO] = `${route.app.task[TO]}${route.app.task.content00
 route.app.error[TO] = `${route.app[TO]}${route.app.error[PATH]}`
 route.app.error.notFound[TO] = `${route.app.error[TO]}${route.app.error.notFound[PATH]}`
 
-export {
-    route
-}
+export { route }

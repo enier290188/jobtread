@@ -1,5 +1,3 @@
 import Favicon from './favicon.svg'
 
-export {
-    Favicon
-}
+export { Favicon }
