@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom'
 import { ComponentContainer, ComponentContainerContent, ComponentContainerHead, ComponentContainerHeadTitle, ComponentContainerHeadTitleIcon, ComponentContainerHeadTitleTypography, ComponentNavigateToAppErrorNotFound } from '../../component'
 import { useInterval } from '../../hook'
 
+const delay = () => new Promise((resolve) => setTimeout(() => resolve(), 1000))
+
 const INITIAL_STATE = {
     isFetching: true,
     error: false,
@@ -54,12 +56,14 @@ const Task = ({ isRunning = true, timeout = 1000 }) => {
 
     const handleIntervalClean = () => {}
 
-    const handleIntervalPlay = () => {
+    const handleIntervalPlay = async () => {
+        await delay()
         setIntervalIsRunning(true)
         startInterval()
     }
 
-    const handleIntervalPause = () => {
+    const handleIntervalPause = async () => {
+        await delay()
         setIntervalIsRunning(false)
         stopInterval()
     }
